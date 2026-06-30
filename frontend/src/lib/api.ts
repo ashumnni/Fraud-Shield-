@@ -1,6 +1,6 @@
 // API client for Fraud Shield
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
 const BASE = `${API_URL}/api/v1`;
 
 async function get<T>(path: string): Promise<T> {
