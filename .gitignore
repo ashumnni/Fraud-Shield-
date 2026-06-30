@@ -1,0 +1,31 @@
+# Dependency directories
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Python compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ML model caches
+backend/app/models/fraud_model.pkl
+
+# Databases
+*.db
+*.sqlite3
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
