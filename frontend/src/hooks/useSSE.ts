@@ -9,7 +9,8 @@ export function useSSE(maxItems = 50) {
 
   const connect = useCallback(() => {
     if (esRef.current) return;
-    const es = new EventSource("http://localhost:8000/api/v1/stream");
+    const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+    const es = new EventSource(`${apiBase}/api/v1/stream`);
     esRef.current = es;
 
     es.onopen = () => setConnected(true);

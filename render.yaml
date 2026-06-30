@@ -1,0 +1,27 @@
+services:
+  # Python FastAPI Backend
+  - type: web
+    name: fraud-shield-backend
+    env: docker
+    dockerContext: backend
+    dockerfilePath: Dockerfile
+    plan: free
+    envVars:
+      - key: DATABASE_URL
+        value: sqlite:///./fraud_shield.db
+      - key: PORT
+        value: 8000
+
+  # Next.js Frontend Dashboard
+  - type: web
+    name: fraud-shield-frontend
+    env: docker
+    dockerContext: frontend
+    dockerfilePath: Dockerfile
+    plan: free
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        fromService:
+          name: fraud-shield-backend
+          type: web
+          property: host

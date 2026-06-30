@@ -1,6 +1,7 @@
 // API client for Fraud Shield
 
-const BASE = typeof window === "undefined" ? "http://127.0.0.1:8000/api/v1" : "http://localhost:8000/api/v1";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const BASE = `${API_URL}/api/v1`;
 
 async function get<T>(path: string): Promise<T> {
   const res = await fetch(`${BASE}${path}`, { cache: "no-store" });
